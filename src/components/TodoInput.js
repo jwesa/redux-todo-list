@@ -1,3 +1,4 @@
+/* eslint-disable jsx-quotes */
 import React from "react";
 
 function TodoInput() {
@@ -5,7 +6,7 @@ function TodoInput() {
 		<div>
 			<h1>Todo Input</h1>
 			<input type="text" />
-			<button>Add</button>
+			<button className="btn btn-primary">Add</button>
 		</div>
 	)
 }

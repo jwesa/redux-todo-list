@@ -5,6 +5,8 @@ import App from './containers/App';
 
 import registerServiceWorker from './registerServiceWorker'
 
+import 'bootstrap/dist/css/bootstrap.min.css';
+
 import './index.css';
 
 ReactDOM.render(
