@@ -1,14 +1,13 @@
 import React from "react";
 import TodoInput from "../components/TodoInput";
-import TodoItem from "../components/TodoItem";
 // import TodoItem from "../components/TodoItem";
 import TodoList from "../components/TodoList";
 
-import '../index.css'
+import '../index.css';
 
 function App() {
 	return (
-		<div className="App">
+		<div className="App ">
 			<TodoInput />
 			<TodoList />
 		</div>
