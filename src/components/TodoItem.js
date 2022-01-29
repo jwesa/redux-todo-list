@@ -1,9 +1,17 @@
 import React, { useState } from "react";
 import { useDispatch } from "react-redux";
-import { removeTodo, updateTodo } from '../redux/actions'
+import { removeTodo, updateTodo } from '../redux/actions';
 
+import edit from '../css/icons/edit-regular.svg';
+import update from '../css/icons/save-regular.svg'
+import remove from '../css/icons/trash-alt-regular.svg';
 
 function TodoItem({ todo }) {
+	const editIcon = <img src={edit} alt="Edit" height={20} weight={20} />;
+	const deleteIcon = <img src={remove} alt="Delete" height={20} weight={20} />;
+	const updateIcon = <img src={update} alt="Update" height={20} weight={20} />;
+
+
 	const [editable, setEditable] = useState(false);
 	const [name, setName] = useState(todo.name);
 	const dispatch = useDispatch();
@@ -31,11 +39,11 @@ function TodoItem({ todo }) {
 								setName(todo.name);
 							}
 							setEditable(!editable)
-						}}>{editable ? 'Update' : 'Edit'}</button>
+						}}>{editable ? updateIcon : editIcon}</button>
 					<button
 						className="btn btn-danger"
 						onClick={() => dispatch(removeTodo(todo.id))} >
-						Delete
+						{deleteIcon}
 					</button>
 				</span>
 			</div>

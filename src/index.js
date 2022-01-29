@@ -8,7 +8,7 @@ import registerServiceWorker from './registerServiceWorker'
 
 import 'bootstrap/dist/css/bootstrap.min.css';
 
-import './index.css';
+import './css/index.css';
 
 ReactDOM.render(
 	<Provider store={store}>

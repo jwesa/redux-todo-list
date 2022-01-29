@@ -4,8 +4,12 @@ import { useDispatch } from 'react-redux';
 import { addTodo } from '../redux/actions'
 import { v1 as uuid } from 'uuid';
 
+import add from '../css/icons/plus-solid.svg';
+
 
 function TodoInput() {
+	const addIcon = <img src={add} alt="Add" height={20} weight={20} style={{color: "white"}}/>;
+
 	let [name, setName] = useState();
 	const dispatch = useDispatch();
 	const handleAddTodo = () => {
@@ -41,7 +45,7 @@ function TodoInput() {
 							handleAddTodo();
 						}
 						}
-						className="btn btn-primary">Add</button>
+						className="btn btn-primary">{addIcon}</button>
 				</div>
 			</div>
 		</div>
