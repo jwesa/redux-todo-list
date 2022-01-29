@@ -16,36 +16,33 @@ function TodoItem({ todo }) {
 	const [name, setName] = useState(todo.name);
 	const dispatch = useDispatch();
 	return (
-		<div className="container">
-			<div className="row align-items-center m-2">
-				{/* <div className="col-4">#{todo.id.length > 1 ? todo.id[2] : todo.id}</div> */}
-				<div className="col-4">
-					<h5>{editable ? <input type="text" className="form-control"
-						value={name}
-						onChange={(e) => setName(e.target.value)}
-					/> : todo.name}</h5>
-				</div>
-				<span className="col-4">
-					<button
-						className="btn btn-primary"
-						onClick={() => {
-							dispatch(updateTodo(
-								{
-									...todo,
-									name: name,
-								}
-							));
-							if (editable) {
-								setName(todo.name);
+		<div className="row mx-2 d-flex align-items-center m-2">
+			<div className="col-7  mt-3 mb-2">
+				<h5>{editable ? <input type="text" className="form-control"
+					value={name}
+					onChange={(e) => setName(e.target.value)}
+				/> : todo.name}</h5>
+			</div>
+			<div className="col-4">
+				<button
+					className="btn btn-primary"
+					onClick={() => {
+						dispatch(updateTodo(
+							{
+								...todo,
+								name: name,
 							}
-							setEditable(!editable)
-						}}>{editable ? updateIcon : editIcon}</button>
-					<button
-						className="btn btn-danger"
-						onClick={() => dispatch(removeTodo(todo.id))} >
-						{deleteIcon}
-					</button>
-				</span>
+						));
+						if (editable) {
+							setName(name); //setName(todo.name) сбрасывало на предыдущий стейт после эдита.
+						}
+						setEditable(!editable)
+					}}>{editable ? updateIcon : editIcon}</button>
+				<button
+					className="btn btn-danger offset-1"
+					onClick={() => dispatch(removeTodo(todo.id))} >
+					{deleteIcon}
+				</button>
 			</div>
 		</div>
 	)

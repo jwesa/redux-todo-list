@@ -1,7 +1,8 @@
 import { ADD_TODO, UPDATE_TODO, REMOVE_TODO } from './actions'
-import { todos } from './states';
 
-export function reducer(state = todos, action) {
+const initialState = [];
+
+export function reducer(state = initialState, action) {
 	let newTodos = [];
 	switch (action.type) {
 		case ADD_TODO:
