@@ -8,6 +8,15 @@ import { v1 as uuid } from 'uuid';
 function TodoInput() {
 	let [name, setName] = useState();
 	const dispatch = useDispatch();
+	const handleAddTodo = () => {
+		dispatch(addTodo(
+			{
+				id: uuid(),
+				name: name
+			}
+		));
+		setName('');
+	}
 	return (
 		<div className="container">
 			<h1>Todo Input</h1>
@@ -15,6 +24,11 @@ function TodoInput() {
 				<div className="col-9">
 					<input
 						onChange={(e) => setName(e.target.value)}
+						onKeyPress={(e) => {
+							if (e.key === 'Enter') {
+								handleAddTodo();
+							}
+						}}
 						value={name}
 						type="text"
 						className="col form-control" />
@@ -23,17 +37,10 @@ function TodoInput() {
 					<button
 						disabled={!name}
 
-						// onKeyPress={} ADD TODO PRESSING ENTER
-						
 						onClick={() => {
-						dispatch(addTodo(
-							{
-								id: uuid(),
-								name: name
-							}
-						))
-						setName('');
-					}}
+							handleAddTodo();
+						}
+						}
 						className="btn btn-primary">Add</button>
 				</div>
 			</div>
