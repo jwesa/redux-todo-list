@@ -1,1 +1,1 @@
-Redux ToDo App
+Redux ToDo App with editing feature. 
